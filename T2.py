@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
 import numpy as np
 import pandas as pd
 from sklearn.datasets import load_iris
@@ -26,9 +32,10 @@ class Facade:
             result[i] = np.bincount(predictions[:, i]).argmax()
 
         return result
+    
+    def main():
 
-if __name__ == "__main__":
-    data = load_iris()
+        data = load_iris()
     x, y = data.data, data.target
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.41, shuffle=True)
 
@@ -38,3 +45,7 @@ if __name__ == "__main__":
     ensamble.fit(x_train, y_train)
     predict = ensamble.predict(x_test)
     print(predict)
+    
+if __name__ == "__main__":
+    main()
+

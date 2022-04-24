@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
 import pandas as pd
 import numpy as np
 from sklearn.datasets import load_iris
@@ -24,8 +30,7 @@ class Builder:
         indexes = int((df_share / 100) * len(y))
         return x[:indexes], y[:indexes]
 
-
-if __name__ == "__main__":
+def main():
     iris = load_iris()
     iris_df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
     x = iris_df.drop(labels='sepal length (cm)', axis=1)
@@ -44,3 +49,7 @@ if __name__ == "__main__":
         pred = lr.predict(x_test)
 
         print(f'MSE at {df_share}:', mean_squared_error(y_test, pred))
+        
+if __name__ == "__main__":
+    main()
+

@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
 import random
 class Memento:
     def __init__(self, state):
@@ -40,9 +46,8 @@ class NeuralNetwork():
         
         
         self.weights = memento.state
-
-if __name__ == "__main__":
-    iteration = 0
+def main():
+     iteration = 0
 
     weights_count = 1000
     NN = NeuralNetwork(weights_count)
@@ -67,3 +72,7 @@ if __name__ == "__main__":
             NN.restore_weights(history[-1])
 
     print(f'Result: {best_loss=}')
+    
+if __name__ == "__main__":
+   main()
+
